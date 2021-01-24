@@ -1,0 +1,156 @@
+.main{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+html { height: 100%; }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+img{
+    border-radius: 100%;
+}
+.heading{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: azure;
+    font-size: xx-large;
+    font-weight: 300;
+
+
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+p{
+    color:azure;
+}
+
+#al{
+    margin:5%;
+    color: azure;
+}
+
+button{
+    border: none;
+    border-color: azure;
+    
+    color: azure;
+    background-color: #0000005e;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .text-center.heading-text {
+    margin-top: 100px;
+  }
+  
+  .input-box {
+    margin-top: 30px;
+  }
+  
+  p {
+    margin-top: 20px;
+    height: 30px;
+    align-content: center;
+    vertical-align: middle;
+  }
+  
+  .text-left.tracking-results-heading {
+    margin-top: 100px;
+  }
+  
+  .text-center.tracking-results-heading {
+    margin-top: 100px;
+  }
+  
+  .table-responsive {
+    margin-left: 10px;
+    margin-left: 10px;
+  }
+  
+  .shortened_url {
+    font-size: 25px;
+  }
+  
+  .url-text {
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    margin-top: 50px;
+  }
+  
+  .gradbody {
+    background: linear-gradient(273deg, #211a1a, #5030a9, #c21f1f);
+    background-size: 600% 600%;
+  
+    -webkit-animation: gradchange 10s ease infinite;
+    -moz-animation: gradchange 10s ease infinite;
+    animation: gradchange 10s ease infinite;
+  }
+  
+  @-webkit-keyframes gradchange {
+    0% {
+      background-position: 0% 51%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 51%;
+    }
+  }
+  @-moz-keyframes gradchange {
+    0% {
+      background-position: 0% 51%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 51%;
+    }
+  }
+  @keyframes gradchange {
+    0% {
+      background-position: 0% 51%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 51%;
+    }
+  }
+   */
